@@ -1,0 +1,31 @@
+extends layouts/login.layout.pug
+block content 
+    .Login-container.col-lg-4.col-md-6.col-sm-12.mx-auto.py-5.px-4.bg-white.shadow-lg.rounded
+        h1.fs-1.text-center  register 
+        form#registerForm.login-form(method="post" ,  onsubmit="event.preventDefault();validateForm()")  
+            .error #{errorMessage}
+            input.form-control.mt-4.py-4.px-3(type="text", name="firstName", placeholder="First name", required="")
+            input.form-control.mt-2.py-4.px-3(type="text", name="lastName", placeholder="Last name", required="")
+            input.form-control.mt-2.py-4.px-3(type="text", name="userName", placeholder="Username", required="")
+            input.form-control.mt-2.py-4.px-3(type="email", name="email", placeholder="Email",required="")
+            input#password.form-control.mt-2.py-4.px-3(type="password", name="password", placeholder="Password", required="")
+            input#passwordConf.form-control.mt-2.py-4.px-3(type="password", name="passwordConf", placeholder="Confirm password", required="")
+            input.btn.btn-primary.col-12.py-2.mt-4(type="submit", value="register")
+        a.d-block.text-right.mt-3(href="/auth/login") Need an account? Register here. 
+    script.
+        const form = document.getElementById("registerForm")
+        const passwordField = document.getElementById("password")
+        const passwordConfirmField = document.getElementById("passwordConf")
+        function validateForm() {
+            if(passwordField.value != passwordConfirmField.value) {
+                alert("Passwords do not match. Please try again.")
+            }
+            else {
+                form.submit();
+            }
+            
+        }
+
+
+
+

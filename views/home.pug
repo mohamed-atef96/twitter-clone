@@ -1,0 +1,19 @@
+extends layouts/main.layout.pug
+block content
+    h3.mt-2.px-4.py-2.shadow-sm Home
+    .tweet-form.p-3.d-flex
+        .user-pic.mr-1
+            img(src=userLoggedIn.profilePic, alt="profile picture" width="100%")
+        form.col(action="") 
+            textarea.form-control#tweetText(placeholder="What's happening?"  style="height: 60px")
+            input.btn.py-2.mt-4#submit(type="submit", value="Tweet" , disabled)
+    #tweetsContainer
+    +createReplyModal(userLoggedIn)
+    script(src="/js/shared.js") 
+    script(src="/js/home.js") 
+
+
+
+
+
+

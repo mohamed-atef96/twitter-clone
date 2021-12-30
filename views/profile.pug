@@ -1,0 +1,43 @@
+extends layouts/main.layout.pug
+
+block content
+    script.
+        var profileUser = '!{userProfileJs}'
+
+    h3.mt-2.px-4.py-2.shadow-sm #{pageTitle}
+    .profileHeaderContainer
+        .coverPhotoContainer
+            .userImageContainer.ml-2
+                img(src=userProfile.profilePic, alt="User profile image")
+        .profileButtonsContainer
+            if userProfile._id != userLoggedIn._id
+                a.profileButton(href=`/messages/${userProfile._id}`)
+                    i.fas.fa-envelope
+                +createFollowButton(userProfile, false)
+        .userDetailsContainer
+            span.displayName #{userProfile.firstName} #{userProfile.lastName}
+            span.userName @#{userProfile.userName}
+            span.description #{userProfile.description}
+
+            .followersContainer
+                a(href=`/profile/${userProfile.userName}/following` class="mr-2")
+                    span.value #{0}
+                    span  Following
+                a(href=`/profile/${userProfile.userName}/followers`)
+                    span.value #{0}
+                    span  Followers
+        .tabContainer.row.mt-2
+            a.col(href='/', class="tab active")
+                span tweets
+            a.col(href='/', class="tab")
+                span replies
+    #tweetsContainer
+        +createReplyModal(userLoggedIn)
+        script(src="/js/shared.js")        
+        script(src="/js/profile.js")         
+
+
+
+
+
+

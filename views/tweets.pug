@@ -1,0 +1,10 @@
+extends layouts/main.layout.pug
+block content
+    script.
+        let tweetId = "!{tweetId}";
+    h3.mt-2.px-4.py-2.shadow-sm View Tweet
+    #tweet-container
+    #replies-container
+    +createReplyModal(userLoggedIn)
+    script(src="/js/shared.js")
+    script(src="/js/tweet.js") 

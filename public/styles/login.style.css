@@ -1,0 +1,13 @@
+body {
+  background-color: #0099ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  font-size: 18px;
+}

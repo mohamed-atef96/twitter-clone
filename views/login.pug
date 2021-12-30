@@ -1,0 +1,16 @@
+extends layouts/login.layout.pug
+block content 
+    .Login-container.col-lg-4.col-md-6.col-sm-12.mx-auto.pt-4.pb-5.px-4.bg-white.shadow-lg.rounded
+        h1.text-center  Login 
+        form#login-form(method="post" , onsubmit="event.preventDefault() ; submit()")  
+            .error #{errorMessage}
+            input.form-control.mt-4.py-4.px-3(type="text" , name="userName" ,placeholder="User name or Email" , required="  ")
+            input.form-control.mt-2.py-4.px-3(type="password" , name="password" ,placeholder="Password" , required="  ")
+            input.btn.btn-primary.col-12.py-2.mt-4(type="submit", value="Login")
+        a.d-block.text-right.mt-3(href="/auth/register") Need an account? Register here. 
+    script.
+        const form = document.getElementById('login-form');
+        function submit(){
+            form.submit()
+        }
+   
